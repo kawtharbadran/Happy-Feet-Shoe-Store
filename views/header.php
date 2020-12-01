@@ -5,6 +5,7 @@
     $window = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     $women_section = "/women/";
     $men_section = "/men/";
+    $purchase_section = "/purchase/";
     $sign_in_section = "/user_manager/"
 ?>
 
@@ -15,7 +16,8 @@
         <meta charset="utf-8">
         <?php 
         //testing current window so we can correctly reference CSS sheet
-        if(strpos($window, $women_section) || 
+        if(strpos($window, $purchase_section) || 
+            strpos($window, $women_section) || 
            strpos($window, $men_section) ||
            strpos($window, $sign_in_section)){ ?>
             <link rel="stylesheet" type="text/css" href="../styles/main.css">
