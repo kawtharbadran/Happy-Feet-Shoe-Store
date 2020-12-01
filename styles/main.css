@@ -227,3 +227,36 @@ footer p{
     text-decoration: none;
     cursor: pointer;
   }
+
+  .items {
+    padding: 2%;
+    height: 200px;
+    width: 200px;
+  }
+
+  .items:hover {
+    height: 300px;
+    width: 300px;
+  }
+
+  .dashboard {
+    text-align: center;
+    min-height: 600px;
+  }
+
+  .shoeitem {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #fafaef;
+    display: inline-block;
+    border-radius: .3rem;
+    margin: 16px;
+    padding: 16px;
+  }
+
+  .shoelabel {
+    margin: 10px;
+  }
+
+  .button {
+    width: 14em;
+  }

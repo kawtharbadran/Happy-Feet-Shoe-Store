@@ -1,9 +1,23 @@
 -- Create the happy feet shoe store database
 
---!40100 DEFAULT CHARACTER SET utf8mb4
+-- 40100 DEFAULT CHARACTER SET utf8mb4
 DROP DATABASE IF EXISTS happyfeetshoestore;
 CREATE DATABASE happyfeetshoestore;
 USE happyfeetshoestore;
+
+-- Create State Table
+CREATE TABLE `state` (
+ `stateCode` char(2) NOT NULL,
+ `stateName` varchar(30) NOT NULL,
+ PRIMARY KEY (`stateCode`)
+); -- ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+-- Create Country table
+CREATE TABLE `country` (
+ `countryCode` char(2) NOT NULL,
+ `countryName` varchar(50) NOT NULL,
+ PRIMARY KEY (`countryCode`)
+); -- ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
 -- Create address table
 CREATE TABLE `address` (
@@ -18,9 +32,9 @@ CREATE TABLE `address` (
  KEY `fk_countryCode` (`countryCode`),
  CONSTRAINT `fk_countryCode` FOREIGN KEY (`countryCode`) REFERENCES `country` (`countryCode`),
  CONSTRAINT `fk_stateCode` FOREIGN KEY (`stateCode`) REFERENCES `state` (`stateCode`)
-); --ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4
+); -- ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4
 
---Create User table
+-- Create User table
 CREATE TABLE `user` (
  `userID` int(11) NOT NULL AUTO_INCREMENT,
  `firstName` varchar(50) NOT NULL,
@@ -33,42 +47,28 @@ CREATE TABLE `user` (
  UNIQUE KEY `email` (`email`),
  KEY `fk_addressID` (`addressID`),
  CONSTRAINT `fk_addressID` FOREIGN KEY (`addressID`) REFERENCES `address` (`addressID`)
-); --ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4
+); -- ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4
 
---Create Category table
+-- Create Category table
 CREATE TABLE `category` (
  `categoryID` int(11) NOT NULL AUTO_INCREMENT,
  `categoryName` varchar(20) NOT NULL,
  PRIMARY KEY (`categoryID`)
-); --ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+); -- ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
 -- Create Color table
 CREATE TABLE `color` (
  `colorID` int(11) NOT NULL AUTO_INCREMENT,
  `colorName` varchar(20) NOT NULL,
  PRIMARY KEY (`colorID`)
-); --ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+); -- ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
 -- Create Size table
 CREATE TABLE `size` (
  `sizeID` int(11) NOT NULL,
  `sizeUS` int(11) NOT NULL,
  `sizeUK` int(11) NOT NULL
-); --ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
-
--- Create State Table
-CREATE TABLE `state` (
- `stateCode` char(2) NOT NULL,
- `stateName` varchar(30) NOT NULL,
- PRIMARY KEY (`stateCode`)
-); --ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
-
--- Create Country table
-CREATE TABLE `country` (
- `countryCode` char(2) NOT NULL,
- `countryName` varchar(20) NOT NULL,
- PRIMARY KEY (`countryCode`)
-); --ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+); -- ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
 -- Create Product Table
 CREATE TABLE `product` (
@@ -83,7 +83,7 @@ CREATE TABLE `product` (
  KEY `fk_colorID` (`colorID`),
  CONSTRAINT `fk_categoryID` FOREIGN KEY (`categoryID`) REFERENCES `category` (`categoryID`),
  CONSTRAINT `fk_colorID` FOREIGN KEY (`colorID`) REFERENCES `color` (`colorID`)
-); --ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+); -- ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
 -- Create Shoeorder table
 CREATE TABLE `shoeorder` (
@@ -95,7 +95,7 @@ CREATE TABLE `shoeorder` (
  KEY `fk_productID` (`productID`),
  CONSTRAINT `fk_productID` FOREIGN KEY (`productID`) REFERENCES `product` (`productID`),
  CONSTRAINT `fk_userID` FOREIGN KEY (`userID`) REFERENCES `user` (`UserID`)
-); --ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+); -- ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
 -- Insert values into Country table
 INSERT INTO country VALUES
