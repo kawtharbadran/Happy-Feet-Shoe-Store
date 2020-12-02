@@ -101,8 +101,8 @@ include 'views/header.php'; ?>
                         </div>
                     </div>
                     <div class="Row">
-                        <div class="Cell"><h3><a href="women/index.php">Shop Women Shoes as Guest</a></h3></div>
-                        <div class="Cell"><h3><a href="men/index.php">Shop Men Shoes as Guest</a></h3></div>
+                        <div class="Cell"><h3><a href="section/?section=women">Shop Women Shoes as Guest</a></h3></div>
+                        <div class="Cell"><h3><a href="section/?section=men">Shop Men Shoes as Guest</a></h3></div>
                     </div>
                 </div>
                 
