@@ -47,10 +47,28 @@
 
         <!-- NAV BAR -->
         <ul class="nav-list">
-            <li><a href="">Home</a></li>
-            <li><a href="">Men</a></li>
-            <li><a href="">Women</a></li>
-            <li class="right_nav_tab"><a href="">About us</a></li>
+
+        <?php if(strpos($window, $purchase_section) || 
+                strpos($window, $women_section) || 
+                strpos($window, $men_section) ||
+                strpos($window, $sign_in_section)) {
+        ?>
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="../men">Men</a></li>
+            <li><a href="../women">Women</a></li>
+            <li class="right_nav_tab"><a href="../aboutus">About us</a></li>
+            <li class="right_nav_tab"><a href="../history">Purchase History</a></li>
+        <?php
+        } else {
+        ?>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./men">Men</a></li>
+            <li><a href="./women">Women</a></li>
+            <li class="right_nav_tab"><a href="./aboutus">About us</a></li>
+            <li class="right_nav_tab"><a href="./history">Purchase History</a></li>
+        <?php
+        }
+        ?>
             <?php  
             //if the user is logged in and has a valid session, display sign out tab in nav bar 
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE)

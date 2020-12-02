@@ -81,7 +81,7 @@ else{
 
                 //if the user successsfully logs in, no need for email and password variables anymore
                 unset($_SESSION['email']);
-                unset($_SESSION['input_password'])
+                unset($_SESSION['input_password']);
 
                 //redirect to home page
                 header('Location: ../index.php');
