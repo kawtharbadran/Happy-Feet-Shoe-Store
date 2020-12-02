@@ -73,7 +73,7 @@ include '../views/header.php';
                 <?php
                     if((!isset($loggedin) || (isset($loggedin) && $loggedin == FALSE))) {
                 ?>
-                    <a href="../index.php">
+                    <a href="../index.php" style="text-decoration: none;">
                         <input type="button" class="form_button buybutton" value="Login to Buy" />
                     </a>
                 <?php } else { ?>
