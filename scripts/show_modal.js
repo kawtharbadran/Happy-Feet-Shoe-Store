@@ -23,4 +23,3 @@ function show_modal(message){
         modal.style.display = "none";
     }
 }
-

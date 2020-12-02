@@ -24,10 +24,15 @@ if(count($countries) == 0 || count($states) == 0){
 }
 //get any variables that may have been set from the sign_in session
 //such as any error messages and booleans to know whether to show them
-if(isset($_SESSION['message']) && isset($_SESSION['show_message'])){
-    $message = $_SESSION['message'];
+if(isset($_SESSION['sign_up_message']) && isset($_SESSION['show_message'])){
+    $message = $_SESSION['sign_up_message'];
     $show_message = $_SESSION['show_message'];
 }
+//also, when user lands on sign up page, clear sign in page message if it was set
+if(isset($_SESSION['sign_in_message']) && $_SESSION['sign_in_message']!= NULL){
+    unset($_SESSION['sign_in_message']);
+}
+
 //if the user still has not logged in and clicked on sign up,
 //then display the div for signing up instead of signing in
 include '../views/header.php';

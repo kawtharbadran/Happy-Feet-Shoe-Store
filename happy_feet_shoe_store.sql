@@ -63,13 +63,6 @@ CREATE TABLE `color` (
  PRIMARY KEY (`colorID`)
 ); -- ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
--- Create Size table
-CREATE TABLE `size` (
- `sizeID` int(11) NOT NULL,
- `sizeUS` int(11) NOT NULL,
- `sizeUK` int(11) NOT NULL
-); -- ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
-
 -- Create Product Table
 CREATE TABLE `product` (
  `productID` int(11) NOT NULL AUTO_INCREMENT,
@@ -490,10 +483,10 @@ INSERT INTO product (productName, section, categoryID, colorID, price) VALUES
  ('Waterproof Boots','women', (SELECT categoryID FROM category WHERE categoryName = 'boots'), (SELECT colorID FROM color WHERE colorName = 'brown'), 40.4),
  ('Waterproof Boots','women', (SELECT categoryID FROM category WHERE categoryName = 'boots'), (SELECT colorID FROM color WHERE colorName = 'gray'), 40.4),
  ('Waterproof Boots','women', (SELECT categoryID FROM category WHERE categoryName = 'boots'), (SELECT colorID FROM color WHERE colorName = 'maroon'), 40.4),
- ('Flower Sneakera','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'beige'), 30.5),
- ('Flower Sneakera','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'gray'), 30.5),
- ('Flower Sneakera','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'light blue'), 30.5),
- ('Flower Sneakera','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'light green'), 30.5),
+ ('Flower Sneakers','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'beige'), 30.5),
+ ('Flower Sneakers','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'gray'), 30.5),
+ ('Flower Sneakers','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'light blue'), 30.5),
+ ('Flower Sneakers','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'light green'), 30.5),
  ('Sandals','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'beige'), 22.7),
  ('Sandals','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'blue'), 22.7),
  ('Sandals','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'pink'), 22.7),
@@ -505,3 +498,36 @@ INSERT INTO product (productName, section, categoryID, colorID, price) VALUES
  ('Sports Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'black'), 39.3),
  ('Sports Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'blue'), 39.3),
  ('Sports Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'casual'), (SELECT colorID FROM color WHERE colorName = 'gray'), 39.3);
+
+ -- Insert more shoes for women
+  INSERT INTO product (productName, section, categoryID, colorID, price) VALUES
+ ('Low Heel Dress Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'black'), 27.7),
+ ('Low Heel Dress Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'blue'), 27.7),
+ ('Low Heel Dress Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'gray'), 27.7),
+ ('Low Heel Dress Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'brown'), 27.7),
+ ('Metal Buckle Dress Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'black'), 35.9),
+ ('Metal Buckle Dress Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'blue'), 35.9),
+ ('Metal Buckle Dress Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'brown'), 35.9),
+ ('Metal Buckle Dress Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'green'), 35.9),
+ ('Open Toe Heels','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'black'), 42.2),
+ ('Open Toe Heels','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'blue'), 42.2),
+ ('Open Toe Heels','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'light blue'), 42.2),
+ ('Open Toe Heels','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'red'), 42.2),
+ ('Ribbon Leather Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'black'), 58.3),
+ ('Ribbon Leather Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'blue'), 58.3),
+ ('Ribbon Leather Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'gray'), 58.3),
+ ('Ribbon Leather Shoes','women', (SELECT categoryID FROM category WHERE categoryName = 'formal'), (SELECT colorID FROM color WHERE colorName = 'green'), 58.3),
+ ('Flip-flops','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'red'), 19.4),
+ ('Flip-flops','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'blue'), 19.4),
+ ('Flip-flops','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'gray'), 19.4),
+ ('Flip-flops','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'green'), 19.4),
+ ('Flip-flops','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'yellow'), 19.4),
+ ('Outdoor Slippers','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'red'), 24.6),
+ ('Outdoor Slippers','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'blue'), 24.6),
+ ('Outdoor Slippers','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'green'), 24.6),
+ ('Outdoor Slippers','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'orange'), 24.6),
+ ('Winter Slippers','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'gray'), 20.9),
+ ('Winter Slippers','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'pink'), 20.9),
+ ('Winter Slippers','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'green'), 20.9),
+ ('Winter Slippers','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'purple'), 20.9),
+ ('Winter Slippers','women', (SELECT categoryID FROM category WHERE categoryName = 'slippers'), (SELECT colorID FROM color WHERE colorName = 'blue'), 20.9);

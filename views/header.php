@@ -1,12 +1,16 @@
 <?php 
+
+    session_abort();
     //define part of the paths that are in a deeper level in the working directory
     //below in the html, we will test to see if user is at one of these pages 
     //so we can correctly reference the CSS sheet and nav bar links
     $window = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    $women_section = "/women/";
-    $men_section = "/men/";
+    $women_men_section = "/section/";
     $purchase_section = "/purchase/";
-    $sign_in_section = "/user_manager/"
+    $sign_in_section = "/user_manager/";
+    $about_us_section = "/about_us/";
+    $purchase_history_section = "/history";
+
 ?>
 
 <!DOCTYPE html>
@@ -16,10 +20,11 @@
         <meta charset="utf-8">
         <?php 
         //testing current window so we can correctly reference CSS sheet
-        if(strpos($window, $purchase_section) || 
-            strpos($window, $women_section) || 
-           strpos($window, $men_section) ||
-           strpos($window, $sign_in_section)){ ?>
+        if(strpos($window, $purchase_history_section) ||
+            strpos($window, $about_us_section) ||
+            strpos($window, $purchase_section) || 
+            strpos($window, $women_men_section) ||
+            strpos($window, $sign_in_section)){ ?>
             <link rel="stylesheet" type="text/css" href="../styles/main.css">
             <link rel="stylesheet" href="../styles/normalize.css" type="text/css">
         <?php 
@@ -48,23 +53,23 @@
         <!-- NAV BAR -->
         <ul class="nav-list">
 
-        <?php if(strpos($window, $purchase_section) || 
-                strpos($window, $women_section) || 
-                strpos($window, $men_section) ||
+        <?php if(strpos($window, $purchase_history_section) ||
+                strpos($window, $about_us_section) ||
+                strpos($window, $purchase_section) || 
+                strpos($window, $women_men_section) || 
                 strpos($window, $sign_in_section)) {
         ?>
             <li><a href="../index.php">Home</a></li>
-            <li><a href="../men">Men</a></li>
-            <li><a href="../women">Women</a></li>
-            <li class="right_nav_tab"><a href="../aboutus">About us</a></li>
-            <li class="right_nav_tab"><a href="../history">Purchase History</a></li>
+            <li><a href="../section?section=men">Men</a></li>
+            <li><a href="../section?section=women">Women</a></li>
+            <li class="right_nav_tab"><a href="../about_us/">About us</a></li>
         <?php
         } else {
         ?>
             <li><a href="./index.php">Home</a></li>
-            <li><a href="./men">Men</a></li>
-            <li><a href="./women">Women</a></li>
-            <li class="right_nav_tab"><a href="./aboutus">About us</a></li>
+            <li><a href="./section?section=men">Men</a></li>
+            <li><a href="./section?section=women">Women</a></li>
+            <li class="right_nav_tab"><a href="./about_us/">About us</a></li>
         <?php
         }
         ?>
@@ -73,12 +78,13 @@
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE)
             {
                 //check which window we are on to correctly reference sign_out.php
-                if(strpos($window, $purchase_section) || 
-                    strpos($window, $women_section) || 
-                    strpos($window, $men_section) ||
+                if( strpos($window, $purchase_history_section) ||
+                    strpos($window, $about_us_section) ||
+                    strpos($window, $purchase_section) || 
+                    strpos($window, $women_men_section) || 
                     strpos($window, $sign_in_section))
                 {?>
-                    <li class="right_nav_tab"><a href="./history">Purchase History</a></li>
+                    <li class="right_nav_tab"><a href="../history">Purchase History</a></li>
                     <li class="right_nav_tab"><a href="../user_manager/sign_out.php">Sign out</a></li>
                 <?php
                 }

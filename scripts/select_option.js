@@ -1,5 +1,5 @@
 
-//select the country code from the country drop-down menu 
+//select the country code from the country drop-down menu in sign up page to make sure that the user's entries are selected
 function select_country(country_code){
 
     //Get country select element
@@ -14,7 +14,7 @@ function select_country(country_code){
     }
 }
 
-//select the state code from the state drop-down menu 
+//select the state code from the state drop-down menu in sign up page to make sure that the user's entries are selected
 function select_state(state_code){
 
     //Get country select element

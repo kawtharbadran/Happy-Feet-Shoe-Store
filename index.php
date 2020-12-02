@@ -7,8 +7,8 @@ session_start();
 //such as any error messages and booleans to know whether to show them
 //and variables to know if we are logged in and the users name
 //also get, if set, the variables for email and password to display
-if(isset($_SESSION['message']) && isset($_SESSION['show_message'])){
-    $message = $_SESSION['message'];
+if(isset($_SESSION['sign_in_message']) && isset($_SESSION['show_message'])){
+    $message = $_SESSION['sign_in_message'];
     $show_message = $_SESSION['show_message'];
 }
 if(isset($_SESSION['loggedin']) && isset($_SESSION['loggedin_as'])){
@@ -18,6 +18,10 @@ if(isset($_SESSION['loggedin']) && isset($_SESSION['loggedin_as'])){
 if(isset($_SESSION['email']) && $_SESSION['email'] != NULL && isset($_SESSION['input_password']) && $_SESSION['input_password'] != NULL){
     $email = $_SESSION['email'];
     $input_password = $_SESSION['input_password'];
+}
+//also, when user lands on sign inpage, clear sign up page message if it was set
+if(isset($_SESSION['sign_up_message']) && $_SESSION['sign_up_message']!= NULL){
+    unset($_SESSION['sign_up_message']);
 }
 
 // HEADER
@@ -123,16 +127,15 @@ include 'views/header.php'; ?>
                         </div>
                     </div>
                     <div class="Row">
-                        <div class="Cell"><h3><a href="women/index.php">Shop Women Shoes</a></h3></div>
-                        <div class="Cell"><h3><a href="men/index.php">Shop Men Shoes</a></h3></div>
+                        <!--When user clicks to shop in a specific section, go to section index page and pass men/women section as paramater -->
+                        <div class="Cell"><h3><a href="section/index.php?section=women">Shop Women Shoes</a></h3></div>
+                        <div class="Cell"><h3><a href="section/index.php?section=men">Shop Men Shoes</a></h3></div>
                     </div>
                 </div>
-
             <?php    
             }
             ?>
         </div>
-
     </main>
 
     <!-- FOOTER-->

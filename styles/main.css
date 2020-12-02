@@ -237,8 +237,8 @@ footer p{
 
   .items:hover {
     transition: all 0.35s ease-in-out;
-    height: 300px;
-    width: 300px;
+    height: 250px;
+    width: 250px;
   }
 
   .dashboard {
@@ -314,4 +314,33 @@ div.Row {
 div.Cell {
     display: table-cell;
     text-align: center;
+}
+
+.history_table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.history_table td, .history_table th {
+    border: 2px solid #555;
+    padding: 8px;
+}
+
+.history_table tr:hover {
+    background-color: #f1f1d1;
+}
+
+.history_table {
+    background-color: #fafaef;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+}
+
+.history_table tr:first-child {
+    background-color: #71cdac;
+}
+
+.wide{
+    width: 95%;
 }
