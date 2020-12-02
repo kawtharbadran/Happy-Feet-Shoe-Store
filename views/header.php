@@ -65,7 +65,6 @@
             <li><a href="./men">Men</a></li>
             <li><a href="./women">Women</a></li>
             <li class="right_nav_tab"><a href="./aboutus">About us</a></li>
-            <li class="right_nav_tab"><a href="./history">Purchase History</a></li>
         <?php
         }
         ?>
@@ -74,15 +73,18 @@
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE)
             {
                 //check which window we are on to correctly reference sign_out.php
-                if(strpos($window, $women_section) || 
-                strpos($window, $men_section) ||
-                strpos($window, $sign_in_section))
+                if(strpos($window, $purchase_section) || 
+                    strpos($window, $women_section) || 
+                    strpos($window, $men_section) ||
+                    strpos($window, $sign_in_section))
                 {?>
+                    <li class="right_nav_tab"><a href="./history">Purchase History</a></li>
                     <li class="right_nav_tab"><a href="../user_manager/sign_out.php">Sign out</a></li>
                 <?php
                 }
                 else
                 {?>
+                    <li class="right_nav_tab"><a href="./history">Purchase History</a></li>
                     <li class="right_nav_tab"><a href="user_manager/sign_out.php">Sign out</a></li>
                 <?php
                 }

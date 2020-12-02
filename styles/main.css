@@ -288,7 +288,7 @@ footer p{
 }
 
 .buybutton {
-    width: 120px;
+    width: 160px;
   }
 
 table.tracking {
@@ -297,5 +297,21 @@ table.tracking {
 
 table.tracking tr td {
     color: darkgreen;
+    text-align: center;
+}
+
+div.Table {
+    display: table;
+    width: 100%;
+    padding-top: 72px;;
+}
+
+div.Row {
+    display: table-row;
+    width:100%;
+}
+
+div.Cell {
+    display: table-cell;
     text-align: center;
 }

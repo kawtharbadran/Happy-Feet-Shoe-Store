@@ -2,6 +2,11 @@
 session_start();
 require_once('../model/database.php');
 
+if(isset($_SESSION['loggedin']) && isset($_SESSION['loggedin_as'])){
+    $loggedin = $_SESSION['loggedin'];
+    $loggedin_as = $_SESSION['loggedin_as'];
+}
+
 $shoe_category = filter_input(INPUT_GET, 'shoe_category');
 $shoe_type = filter_input(INPUT_GET, 'shoe_type');
 $shoe = filter_input(INPUT_GET, 'shoe');
@@ -64,7 +69,16 @@ include '../views/header.php';
                 </div>
                 <br><br><br><br>
                 <input type="hidden" name="shoeID" value="<?php echo $shoe['productID'] ?>">
-                <input type="submit" class="form_button buybutton" value="Buy" />
+
+                <?php
+                    if((!isset($loggedin) || (isset($loggedin) && $loggedin == FALSE))) {
+                ?>
+                    <a href="../index.php">
+                        <input type="button" class="form_button buybutton" value="Login to Buy" />
+                    </a>
+                <?php } else { ?>
+                    <input type="submit" class="form_button buybutton" value="Buy Now" />
+                <?php } ?>
             </div>
         </form>
     </div>

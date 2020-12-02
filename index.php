@@ -81,23 +81,56 @@ include 'views/header.php'; ?>
                         <input type="submit" value="Sign in" class="form_button">
                     </form>
                 </div>
+                <br><br>
+
+                <div class="Table">
+                    <div class="Row">
+                        <div class="Cell">
+                            <h3>
+                                <i class="fa fa-female" style="font-size:72px;"></i>
+                            </h3>
+                        </div>
+                        <div class="Cell">
+                            <h3>
+                                <i class="fa fa-male" style="font-size:72px;"></i>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="Row">
+                        <div class="Cell"><h3><a href="women/index.php">Shop Women Shoes as Guest</a></h3></div>
+                        <div class="Cell"><h3><a href="men/index.php">Shop Men Shoes as Guest</a></h3></div>
+                    </div>
+                </div>
+                
                 <?php
             }     
             //if the user has successfully signed in, just show welcome message with user's first name
             //the user will only be signed in after sucessfully matching the email and passwrd in sign_in.php
             else{?>
                 <h3>Welcome, <?php echo $loggedin_as;?> !</h3>
+                <br><br>
+                <div class="Table">
+                    <div class="Row">
+                        <div class="Cell">
+                            <h3>
+                                <i class="fa fa-female" style="font-size:72px;"></i>
+                            </h3>
+                        </div>
+                        <div class="Cell">
+                            <h3>
+                                <i class="fa fa-male" style="font-size:72px;"></i>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="Row">
+                        <div class="Cell"><h3><a href="women/index.php">Shop Women Shoes</a></h3></div>
+                        <div class="Cell"><h3><a href="men/index.php">Shop Men Shoes</a></h3></div>
+                    </div>
+                </div>
+
             <?php    
             }
             ?>
-        </div>
-
-        <div class="card">
-            <h3><a href="women/index.php">Shop Women Shoes as Guest</a></h3>
-        </div>
-
-        <div class="card">
-            <h3><a href="men/index.php">Shop Men Shoes as Guest</a></h3>
         </div>
 
     </main>

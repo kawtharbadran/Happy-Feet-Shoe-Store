@@ -171,6 +171,7 @@ else{
                 $_SESSION['show_message'] = FALSE;
                 $loggedin = TRUE;
                 $loggedin_as = $first_name;
+                $loggedin_userid = $result['userID'];
                 header('Location: ../index.php');
                 exit;
             }

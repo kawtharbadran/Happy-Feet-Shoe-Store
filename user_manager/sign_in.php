@@ -78,6 +78,7 @@ else{
                 $_SESSION['show_message'] = FALSE;
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['loggedin_as'] = $customer['firstName'];
+                $_SESSION['loggedin_userid'] = $customer['userID'];
 
                 //if the user successsfully logs in, no need for email and password variables anymore
                 unset($_SESSION['email']);

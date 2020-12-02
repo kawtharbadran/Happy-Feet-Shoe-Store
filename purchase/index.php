@@ -3,6 +3,12 @@ session_start();
 // HEADER
 include '../views/header.php';
 
+if(isset($_SESSION['loggedin']) && isset($_SESSION['loggedin_as'])){
+    $loggedin = $_SESSION['loggedin'];
+    $loggedin_as = $_SESSION['loggedin_as'];
+    $loggedin_userid = $_SESSION['loggedin_userid'];
+}
+
 $shoeID = filter_input(INPUT_POST, 'shoeID');
 if ($shoeID === NULL) {
     $shoeID = filter_input(INPUT_GET, 'shoeID');
@@ -23,10 +29,28 @@ if($shoeID == NULL) {
 
 <?php    } else {
 require_once('../model/database.php');
-//get all shoes based on category 
-$query = "insert into shoeorder values (1, :shoeID, now(), 1)   ";
+
+$query = "SELECT addressID FROM happyfeetshoestore.`user` as u where u.userID = :userID  ";
 $statement = $db->prepare($query);
+$statement->bindValue(':userID', $loggedin_userid);
+$statement->execute();
+$addressID = $statement->fetch();
+$statement->closeCursor();
+
+?>
+
+<script>
+    console.log(<?php echo $loggedin_userid ?>);
+    console.log(<?php echo $addressID['addressID'] ?>);
+    </script>
+
+<?php
+
+$query = "insert into shoeorder values (:userID, :shoeID, now(), :addressID)   ";
+$statement = $db->prepare($query);
+$statement->bindValue(':userID', $loggedin_userid);
 $statement->bindValue(':shoeID', $shoeID);
+$statement->bindValue(':addressID', $addressID['addressID']);
 $statement->execute();
 $statement->closeCursor();
 
@@ -42,9 +66,10 @@ $statement->closeCursor();
 
 $query = "select `date` as orderplaced, date_add(`date`, interval 14 day) as deliverydate, firstName, lastName, street, city, stateCode, countryCode
             from shoeorder as s, address as a, `user` as u
-            where u.addressID = a.addressID and s.userID = u.userID and u.userID = 1 and s.productID = :shoeID";
+            where u.addressID = a.addressID and s.userID = u.userID and u.userID = :userID and s.productID = :shoeID";
 $statement = $db->prepare($query);
 $statement->bindValue(':shoeID', $shoeID);
+$statement->bindValue(':userID', $loggedin_userid);
 $statement->execute();
 $order = $statement->fetch();
 $statement->closeCursor();
