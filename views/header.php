@@ -5,6 +5,7 @@
     $window = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     $women_section = "/women/";
     $men_section = "/men/";
+    $purchase_section = "/purchase/";
     $sign_in_section = "/user_manager/"
 ?>
 
@@ -15,7 +16,8 @@
         <meta charset="utf-8">
         <?php 
         //testing current window so we can correctly reference CSS sheet
-        if(strpos($window, $women_section) || 
+        if(strpos($window, $purchase_section) || 
+            strpos($window, $women_section) || 
            strpos($window, $men_section) ||
            strpos($window, $sign_in_section)){ ?>
             <link rel="stylesheet" type="text/css" href="../styles/main.css">
@@ -45,24 +47,44 @@
 
         <!-- NAV BAR -->
         <ul class="nav-list">
-            <li><a href="">Home</a></li>
-            <li><a href="">Men</a></li>
-            <li><a href="">Women</a></li>
-            <li class="right_nav_tab"><a href="">About us</a></li>
+
+        <?php if(strpos($window, $purchase_section) || 
+                strpos($window, $women_section) || 
+                strpos($window, $men_section) ||
+                strpos($window, $sign_in_section)) {
+        ?>
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="../men">Men</a></li>
+            <li><a href="../women">Women</a></li>
+            <li class="right_nav_tab"><a href="../aboutus">About us</a></li>
+            <li class="right_nav_tab"><a href="../history">Purchase History</a></li>
+        <?php
+        } else {
+        ?>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./men">Men</a></li>
+            <li><a href="./women">Women</a></li>
+            <li class="right_nav_tab"><a href="./aboutus">About us</a></li>
+        <?php
+        }
+        ?>
             <?php  
             //if the user is logged in and has a valid session, display sign out tab in nav bar 
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE)
             {
                 //check which window we are on to correctly reference sign_out.php
-                if(strpos($window, $women_section) || 
-                strpos($window, $men_section) ||
-                strpos($window, $sign_in_section))
+                if(strpos($window, $purchase_section) || 
+                    strpos($window, $women_section) || 
+                    strpos($window, $men_section) ||
+                    strpos($window, $sign_in_section))
                 {?>
+                    <li class="right_nav_tab"><a href="./history">Purchase History</a></li>
                     <li class="right_nav_tab"><a href="../user_manager/sign_out.php">Sign out</a></li>
                 <?php
                 }
                 else
                 {?>
+                    <li class="right_nav_tab"><a href="./history">Purchase History</a></li>
                     <li class="right_nav_tab"><a href="user_manager/sign_out.php">Sign out</a></li>
                 <?php
                 }

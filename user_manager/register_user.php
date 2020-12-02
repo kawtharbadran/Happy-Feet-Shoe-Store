@@ -115,7 +115,7 @@ else{
                   AND   postalCode = :postalCode";
         //if the state has been chosen, make sure we look for it too
         if($US_state != NULL){
-            $query . " AND stateCode = :stateCode";
+            $query = $query . " AND stateCode = :stateCode";
         }
         $statement = $db->prepare($query);
         $statement->bindValue(':street_address', $street_address);
@@ -171,6 +171,7 @@ else{
                 $_SESSION['show_message'] = FALSE;
                 $loggedin = TRUE;
                 $loggedin_as = $first_name;
+                $loggedin_userid = $result['userID'];
                 header('Location: ../index.php');
                 exit;
             }

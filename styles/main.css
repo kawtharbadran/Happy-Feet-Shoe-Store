@@ -18,6 +18,7 @@ main{
     background-repeat: repeat;
     background-color: #fafaef;
     padding: 4%;
+    min-height: 600px;
 }
 
 .header-bar{
@@ -235,13 +236,14 @@ footer p{
   }
 
   .items:hover {
+    transition: all 0.35s ease-in-out;
     height: 300px;
     width: 300px;
   }
 
   .dashboard {
     text-align: center;
-    min-height: 600px;
+    min-height: 500px;
   }
 
   .shoeitem {
@@ -260,3 +262,56 @@ footer p{
   .button {
     width: 14em;
   }
+
+  .panel {
+    padding: 1.5rem 2rem;
+  }
+
+  .imageshoe {
+    height: 40px;
+    width: 40px;
+    display: none;
+  }
+  
+.side {
+    display: inline;
+    }
+    
+.pic {
+    left: 0;
+    float: left;
+}
+
+.content {
+    margin-left: 55px;
+    top: 0;
+}
+
+.buybutton {
+    width: 160px;
+  }
+
+table.tracking {
+    width: 100%;
+}
+
+table.tracking tr td {
+    color: darkgreen;
+    text-align: center;
+}
+
+div.Table {
+    display: table;
+    width: 100%;
+    padding-top: 72px;;
+}
+
+div.Row {
+    display: table-row;
+    width:100%;
+}
+
+div.Cell {
+    display: table-cell;
+    text-align: center;
+}

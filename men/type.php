@@ -5,7 +5,7 @@ require_once('../model/database.php');
 $shoe_category = filter_input(INPUT_GET, 'shoe_category');
 $shoe_type = filter_input(INPUT_GET, 'shoe_type');
 ///get all formal shoes 
-$query = "select p.productName, replace(p.productName, ' ', '-') as productFileName, replace(c.colorName, ' ', '-') as colorName, cat.categoryName 
+$query = "select p.productID, p.productName, replace(p.productName, ' ', '-') as productFileName, replace(c.colorName, ' ', '-') as colorName, cat.categoryName 
             from product as p, color as c, category as cat 
             where p.colorID = c.colorID and p.categoryID = :shoe_category and p.categoryID = cat.categoryID and p.`section` = 'men' and productName = :shoe_type
             order by p.productName, p.categoryID ";
@@ -38,7 +38,8 @@ include '../views/header.php';
                     <div class="shoelabel">
                         <?php echo $shoe['productName'] ?> - <?php echo $shoe['colorName'] ?>
                     </div>
-                    <input type="submit" value="Buy" class="form_button button" />
+                    <a href="view.php?shoe_category=<?php echo $shoe_category ?>&shoe_type=<?php echo $shoe['productName'] ?>&shoe=<?php echo $shoe['productID'] ?>" class="form_button button">View</a>
+                    
                 </div>
             <?php }?>
         </div>
